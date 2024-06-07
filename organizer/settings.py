@@ -57,7 +57,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 "Ruta prinicipal del proyecto donde indica las URLS permitidas"
@@ -140,6 +141,11 @@ USE_TZ = True
 
 "Ruta para indicarle a Django donde estan los archivos estaticos"
 STATIC_URL = 'static/'
+
+if not DEBUG:
+    
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+    STATIC_STORAGE = 'whitenoise.storage.CompressdManifestStaticFileStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
