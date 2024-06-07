@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 "Ruta base de la carpetas del proyecto"
@@ -23,14 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 "Llave de seguridad que brinda una encriptacion a usuarios para nuestro proyecto"
-SECRET_KEY = '1op2m3o1 m2o3me-i!nli=dh5%sdl$vmpi%89#l1q)39gpdv#(rag-k$fc=wx1zrty'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 "Variable para decirle a nuestra app si esta en produccion o desarrollo (DEBUG = False -> Desarrollo)"
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 "Dominios para tu aplicacion cuando este desplegada"
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -95,7 +96,8 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://db_organizer_project_user:MjR7BMBhTKzCj17ZjGcc8YRcJGVSvUf5@dpg-cph6f2ol6cac739r3v20-a.ohio-postgres.render.com/db_organizer_project')
+database_url = os.environ.get('DATABASE_URL')
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
