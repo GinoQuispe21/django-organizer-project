@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App Inde</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>Todo App</h1>
+            </div>
+            <nav class = "nav-menu">
+                <ul>
+                    <li><a href="{% url 'courses' %}">Cursos</a></li>
+                    <li><a href="{% url 'index' %}">Tareas</a></li>
+                    <li><a href="{% url 'logout' %}">Cerrar Sesion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!--Contenido que va a ir variando-->
+        {% block content %}
+        {% endblock %}
+    </main>
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>

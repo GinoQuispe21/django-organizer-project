@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if messages %}
+<div class = "messages">
+    {% for message in messages %}
+    <div class="alert {{ message.tags }}">
+        <h3>{{ message }}</h3>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<h2>Crear Tarea</h2>
+<form method="post" action="/" class = "form-container">
+    {% csrf_token %}
+    {{ form.title }}
+    {{ form.description }}
+    {{ form.course }}
+    <input type="submit" value="Crear Tarea" class="btn-submit">
+</form>
+
+<h2>Lista de Taresa</h2>
+{% if tasks|length == 0 %}
+<p>No hay tareas registrados por el momento.</p>
+{% else %}
+{% for task in tasks %}
+    {% if task.completed %}
+    <div class="card-task completed">
+        <div class="card-task-info">
+            <strike><h3>{{ task.title }}</h3></strike>
+            <strike><h4>Curso: {{ task.course }}</h4></strike>
+            <strike><p>{{ task.description }}</p></strike>
+            <strike><p>Fecha de creacion: {{ task.created_at }}</p></strike>
+        </div>
+        <div class="card-task-actions">
+            <a id = "update_task" href="{% url 'update_task' task.id %}">Actualizar</a>
+            <a id = "delete_task" href="{% url 'delete_task' task.id %}">Eliminar</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="card-task not-completed">
+        <div class="card-task-info">
+            <h3>{{ task.title }}</h3>
+            <h4>{{ task.course }}</h4>
+            <p>{{ task.description }}</p>
+            <p>Fecha de creacion: {{ task.created_at }}</p>
+        </div>
+        <div class="card-task-actions">
+            <a id = "update_task" href="{% url 'update_task' task.id %}">Actualizar</a>
+            <a id = "delete_task" href="{% url 'delete_task' task.id %}">Eliminar</a>
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+{% endblock %}

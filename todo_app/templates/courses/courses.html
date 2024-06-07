@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if messages %}
+<div class = "messages">
+    {% for message in messages %}
+    <div class="alert {{ message.tags }}">
+        <h3>{{ message }}</h3>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<h2>Agregar curso: </h2>
+<form method="post" class="form-container">
+    {% csrf_token %}
+    {{ form.name }}
+    {{ form.description }}
+    {{ form.credits }}
+    {{ form.teacher }}
+    <input type="submit" name="Crear Tarea" class ="btn-submit">
+</form>
+
+<h2>Lista de cursos: </h2>
+{% if courses|length == 0 %}
+<p>No hay cursos registrados por el momento.</p>
+{% else %}
+{% for course in courses %}
+<div class="card-course">
+    <h3> {{ course.name }}</h3>
+    <p> {{ course.description }}</p>
+    <p> Creditos: {{ course.credits }}</p>
+    <p> Profesor: {{ course.teacher }}</p>
+    <p> Fecha de creacion: {{ course.created_at }}</p>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

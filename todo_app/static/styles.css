@@ -1,0 +1,190 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: rgb(4, 60, 45);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-logo h1{
+    margin: 0;
+}
+
+.nav-menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px
+}
+
+.nav-menu ul li {
+    display: inline;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    width: 80%;
+    background-color: white;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-control-text-input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.btn-submit{
+    padding: 15px;
+    background-color: rgb(15, 137, 103);
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+.card-task{
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.completed {
+    background-color: rgb(197, 198, 198);
+}
+
+.not-completed {
+    background-color: rgb(107, 227, 191);
+}
+
+.card-task-info{
+    flex: 4;
+}
+
+.card-task-actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-task-actions a {
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#update_task {
+    color: white;
+    background-color: rgb(209, 209, 27);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    width: 80%;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+#delete_task {
+    color: white;
+    background-color: rgb(238, 52, 39);
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 80%;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.form-control-checkbox{
+    margin-bottom: 10px;
+}
+
+.span-delete {
+    color: rgb(15, 137, 103);
+}
+
+.form-delete-actions{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.form-delete-actions a,
+.form-delete-actions input[type = "submit"]{
+    text-decoration: none;
+    color: white;
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 10px 5px;
+    width: 120px;
+    text-align: center;
+}
+
+.form-delete-actions input[type = "submit"] {
+    background-color: rgb(238, 52, 39);
+}
+.form-delete-actions a {
+    margin-right: 20px;
+}
+
+.messages .alert {
+    background-color: rgb(186, 218, 246);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.alert h3 {
+    color: black;
+    padding-left: 20px;
+}
+
+.card-course {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: rgb(210, 182, 251);
+}

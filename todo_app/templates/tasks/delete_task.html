@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Eliminar tarea: <span class="span-delete">{{ task }}</span></h2>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi necessitatibus provident voluptatibus quo,
+    exercitationem iste quaerat et ratione quis fuga doloribus, architecto omnis. Aliquam, necessitatibus ad ipsa
+    mollitia exercitationem recusandae ex, accusamus fugit ea nam iure. Nulla reprehenderit totam iste, necessitatibus
+    expedita quae eaque labore consequuntur nam nostrum veritatis accusamus.</p>
+
+<div class="form-delete-actions">
+    <a href="/">Cancelar</a>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+    </form>
+</div>
+{% endblock %}
